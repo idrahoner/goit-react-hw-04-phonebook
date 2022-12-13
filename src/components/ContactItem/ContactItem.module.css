@@ -1,0 +1,40 @@
+.contactItem {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.contactItem:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.contactText {
+  margin: 0 12px 0 0;
+}
+
+.deleteButton {
+  min-width: 100px;
+  height: 25px;
+
+  margin-right: auto;
+
+  font-size: 16px;
+
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(236, 53, 21);
+  color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  transition: scale 250ms linear;
+}
+
+.deleteButton:hover,
+.deleteButton:focus {
+  scale: 1.1;
+}
+
+.deleteButton:active {
+  scale: 0.9;
+}
