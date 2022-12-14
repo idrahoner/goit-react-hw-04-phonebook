@@ -33,6 +33,10 @@ export default function App() {
     setContacts(prevState => prevState.filter(element => element.id !== id));
   };
 
+  const handleChange = event => {
+    setFilter(event.currentTarget.value);
+  };
+
   const filterContacts = () => {
     const query = filter.trim().toLowerCase();
 
@@ -52,10 +56,7 @@ export default function App() {
         <PhonebookForm onSubmit={addContact} />
       </Section>
       <Section title="Contacts">
-        <Filter
-          value={filter}
-          onChange={({ currentTarget }) => setFilter(currentTarget.value)}
-        />
+        <Filter value={filter} onChange={handleChange} />
         <ContactList contacts={filterContacts()} onDelete={deleteContact} />
       </Section>
     </div>

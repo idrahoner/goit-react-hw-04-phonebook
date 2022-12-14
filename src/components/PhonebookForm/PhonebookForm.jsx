@@ -7,18 +7,27 @@ export default function PhonebookForm({ onSubmit }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  // const handleChange = event => {
-  //   const inputName = event.currentTarget.name;
-  //   const inputValue = event.currentTarget.value;
+  const handleChange = event => {
+    const inputName = event.currentTarget.name;
+    const inputValue = event.currentTarget.value;
 
-  //   if (inputName === 'name') {
-  //     return setName(inputValue);
-  //   }
+    if (inputName === 'name') {
+      return setName(inputValue);
+    }
 
-  //   if (inputName === 'number') {
-  //     return setNumber(inputValue);
-  //   }
-  // };
+    if (inputName === 'number') {
+      return setNumber(inputValue);
+    }
+
+    switch (inputName) {
+      case 'name':
+        return setName(inputValue);
+      case 'number':
+        return setNumber(inputValue);
+      default:
+        return;
+    }
+  };
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -39,7 +48,7 @@ export default function PhonebookForm({ onSubmit }) {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
           value={name}
-          onChange={({ currentTarget }) => setName(currentTarget.value)}
+          onChange={handleChange}
         />
       </label>
       <label className={css.formInput}>
@@ -52,7 +61,7 @@ export default function PhonebookForm({ onSubmit }) {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
           value={number}
-          onChange={({ currentTarget }) => setNumber(currentTarget.value)}
+          onChange={handleChange}
         />
       </label>
       <button className={css.submitButton} type="submit">
