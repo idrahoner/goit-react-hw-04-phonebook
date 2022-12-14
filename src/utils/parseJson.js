@@ -1,7 +1,7 @@
 export function parseJson(string) {
   try {
     return JSON.parse(string);
-  } catch {
+  } catch (error) {
     return [];
   }
 }

@@ -10,8 +10,7 @@ export default function ContactItem({ onDelete, id, name, number }) {
       <button
         className={css.deleteButton}
         type="button"
-        onClick={onDelete}
-        id={id}
+        onClick={() => onDelete(id)}
       >
         Delete
       </button>
