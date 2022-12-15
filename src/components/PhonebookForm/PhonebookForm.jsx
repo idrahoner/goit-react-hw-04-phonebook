@@ -11,14 +11,6 @@ export default function PhonebookForm({ onSubmit }) {
     const inputName = event.currentTarget.name;
     const inputValue = event.currentTarget.value;
 
-    if (inputName === 'name') {
-      return setName(inputValue);
-    }
-
-    if (inputName === 'number') {
-      return setNumber(inputValue);
-    }
-
     switch (inputName) {
       case 'name':
         return setName(inputValue);
